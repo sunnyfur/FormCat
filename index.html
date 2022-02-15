@@ -6,90 +6,140 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анкета котика</title>
-    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" />
+
 
 </head>
 
 <body>
-    <header>
-        <h1>Котик</h1>
-    </header>
-    <main>
-        <form class="form">
-            <fieldset>
-                <legend>Контакты</legend>
-                <div class="form__field"><label for="namePerson">Имя владельца</label>
-                    <input type="text" name="namePerson" id="namePerson" placeholder="Имя" required />
+    <div class="container">
+        <header>
+            <h1>Котик</h1>
+        </header>
+        <main>
+
+            <form id="idFormCat">
+                <div class="row">
+                    <div class="col">
+                        <fieldset>
+
+                            <legend>Контакты</legend>
+                            <div class="row">
+
+                                <div class="col-12 col-md-4 mb-3">
+                                    <label for="namePerson" class="form-label">Имя владельца</label>
+                                    <input type="text" name="namePerson" class="form-control" id="namePerson"
+                                        placeholder="Имя" required />
+                                </div>
+                                <div class=" col-12 col-md-4 mb-3">
+                                    <label for="idPhone" class="form-label">Телефон владельца</label>
+                                    <input type="tel" name="telPerson" class="form-control" id="idPhone"
+                                        placeholder="+7 (912) 000-00-00"
+                                        pattern="^\+?(\d{1,3})?[\s]*[- .]?[\s]*\(?(?:\d{2,3})\)?([\s]*[- .]?[\s]*\d{2,4}){2,4}$"
+                                        minlength="10" maxlength="20" />
+                                </div>
+
+                                <div class="col-12 col-md-4 mb-3">
+                                    <label for="idEmail" class="form-label">E-mail владельца</label>
+                                    <input type="email" name="mailPerson" class="form-control" id="idEmail"
+                                        placeholder="mail@mail.ru" required />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
-                <div class="form__field"><label for="idPhone">Телефон владельца</label>
-                    <input type="tel" name="telPerson" id="idPhone" placeholder="+7 (912) 000-00-00"
-                        pattern="^\+?(\d{1,3})?[\s]*[- .]?[\s]*\(?(?:\d{2,3})\)?([\s]*[- .]?[\s]*\d{2,4}){2,4}$"
-                        minlength="10" maxlength="20" />
+                <div class="row">
+                    <div class="col">
+
+                        <fieldset>
+                            <legend>О питомце</legend>
+                            <div class="row">
+                                <div class="col-12 col-md-4 mb-3">
+                                    <label for="idNamePet" class="form-label">Кличка питомца</label>
+                                    <input type="text" name="namePet" class="form-control" id="idNamePet"
+                                        placeholder="Кличка" required />
+                                </div>
+                                <div class="col-12 col-md-4 mb-3">
+                                    <label for="idGrowth" class="form-label">Возраст питомца</label>
+                                    <input type="number" name="growth" class="form-control" id="idGrowth"
+                                        placeholder="1" />
+                                </div>
+
+                                <div class="col-12 col-md-4 mb-3">
+                                    <label for="idBreed" class="form-label">Порода питомца</label>
+                                    <select name="breed" id="idBreed" class="form-select">
+
+                                        <option value="selBreedMeinKun">Мейн-Кун</option>
+                                        <option value="selBreedOriental">Ориентальная</option>
+                                        <option value="selBreedBengal">Бенгальская</option>
+                                        <option value="selBreedWithout">Дворовая</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Чем питается</label>
+                                <div>
+
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" name="feed" value="foodDry"
+                                            id="idFoodDry" />
+                                        <label for="idFoodDry" class="form-check-label"> Сухой корм </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" name="feed" value="foodWet"
+                                            id="idFoodWet" />
+                                        <label for="idFoodWet" class="form-check-label">Влажный корм </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" name="feed" value="foodNatural"
+                                            id="idFoodNatural" />
+                                        <label for="idFoodNatural" class="form-check-label"> Натуральный корм
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <fieldset>
+
+                                <label class="form-label">Самец или самка</label>
+                                <div class="form-check">
+
+                                    <input type="radio" class="form-check-input" name="maleFemale" value="male"
+                                        checked="checked" id="idMale" />
+                                    <label for="idMale" class="form-check-label"> Самец </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="maleFemale" value="female"
+                                        id="idFemale" />
+                                    <label for="idFemale" class="form-check-label">Самка</label>
+                                </div>
+                            </fieldset>
+                        </fieldset>
+                        <div class="mb-3">
+                            <div class="form__field"><label for="idComment" class="form-check-label">Коментарий</label>
+                                <textarea name="comment" rows="4" cols="50" id="idComment"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div><label for="idPhoto">Приложить фото</label><br />
+                                <input class="btn" type="file" name="photo" id="idPhoto" />
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mb-3">Сохранить</button>
+                    </div>
                 </div>
 
-                <div class="form__field"><label for="idEmail">E-mail владельца</label>
-                    <input type="email" name="mailPerson" id="idEmail" placeholder="mail@mail.ru" required />
-                </div>
-            </fieldset>
+            </form>
 
-            <fieldset>
-                <legend>О питомце</legend>
-                <div class="form__field"><label for="namePet">Кличка питомца</label>
-                    <input type="text" name="namePet" id="namePet" placeholder="Кличка" required />
-                </div>
-                <div class="form__field"><label for="idGrowth">Возраст питомца</label>
-                    <input type="number" name="growth" id="idGrowth" placeholder="1" optional />
-                </div>
-                <fieldset>
-                    <legend>Чем питается</legend>
-                    <input type="checkbox" name="feed" value="foodDry" id="idFoodDry" />
-                    <label for="idFoodDry"> Сухой корм </label>
-
-                    <input type="checkbox" name="feed" value="foodWet" id="idFoodWet" />
-                    <label for="idFoodWet">Влажный корм </label>
-                    <input type="checkbox" name="feed" value="foodNatural" id="idFoodNatural" />
-                    <label for="idFoodNatural"> Натуральный корм </label>
-                </fieldset>
-
-
-                <p><label for="breed">Порода питомца</label><br />
-                    <select name="breed" id="breed">
-
-                        <option value="selBreedMeinKun">Мейн-Кун</option>
-                        <option value="selBreedOriental">Ориентальная</option>
-                        <option value="selBreedBengal">Бенгальская</option>
-                        <option value="selBreedWithout">Дворовая</option>
-                    </select>
-                </p>
-
-
-
-
-                <fieldset>
-                    <legend>Самец или самка</legend>
-
-                    <input type="radio" name="maleFemale" value="male" checked="checked" id="idMale" />
-                    <label for="idMale"> Самец </label>
-
-                    <input type="radio" name="maleFemale" value="female" id="idFemale" />
-                    <label for="idFemale">Самка</label>
-                </fieldset>
-            </fieldset>
-
-            <div class="form__field"><label for=" comment">Коментарий</label>
-                <textarea name="comment" rows="4" cols="50" id="comment"></textarea>
-            </div>
-
-            <div><label for="photo">Приложить фото</label><br />
-                <input type="file" name="photo" id="photo" />
-            </div>
-
-            <input type="submit" value="Сохранить">
-
-        </form>
-    </main>
-
-
+        </main>
+    </div>
+    <script src="/js/addCat.js"></script>
+    <script src="/js/cat.js"></script>
 </body>
 
 </html>
