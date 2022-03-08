@@ -11,9 +11,18 @@ const subm = (e) => {
     cat.comment = document.querySelector("#idComment").value;
     cat.photo = avatar;
     console.log(cat);
+
+    fetch("https://httpbin.org/post", {
+            method: 'POST',
+            body: new FormData(e.target)
+        })
+        .then(response => response.json())
+        .then(form => {
+            console.log(form);
+        })
+        .catch(error => console.log(error));
+
 };
-
-
 
 document.getElementById("idPhoto").addEventListener('change', (e) => {
     const file = e.target.files[0];
@@ -24,14 +33,10 @@ document.getElementById("idPhoto").addEventListener('change', (e) => {
             const r = e.target;
             // получаем содержимое файла, состояние чтения, ошибки(или null)
             avatar = r.result
-
-            // document.getElementById("card__image_input").src = avatar
         };
     })(file);
 
     reader.readAsDataURL(file);
 })
-
-
 
 document.getElementById("idFormCat").onsubmit = subm;
